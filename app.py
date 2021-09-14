@@ -145,7 +145,7 @@ def save_qualifying_loans(qualifying_loans):
                 file_name = questionary.text(err_message + "Enter the "
                     "desired file name: ").ask()
                 err_message = "A file name is required. "
-            if Path(file_name).suffix == "":
+            if Path(file_name).suffix.upper() != ".CSV":
                 file_name = file_name + ".csv"
             
             #Assemble file path, add header, and save
