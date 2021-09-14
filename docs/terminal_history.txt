@@ -1,0 +1,50 @@
+  598  ls
+  599  mv README.md README.md_back
+  600  ls
+  601  cp * /c/users/jacob/repos/fintech-workspace/fintech-loan-qualifier-app/
+  602  cp * /c/users/jacob/repos/fintech-workspace/fintech-loan-qualifier-app/  -r
+  603  cd /c/users/jacob/repos/fintech-lo
+  604  cd /c/users/jacob/repos
+  605  ls
+  606  cd fintech-workspace/
+  607  cd fintech-loan-qualifier-app/
+  608  ls
+  609  rm README.md_back
+  610  git checkout -b loan-qualifier-app
+  611  git statsu
+  612  git status
+  613  git add .
+  614  git status
+  615  git commit
+  616  eval `ssh-agent`
+  617  ssh-add
+  618  code .
+  619  git status
+  620  git add .
+  621  git status
+  622  git commit
+  623  git status
+  624  git add .
+  625  git commit
+  626  pip freeze
+  627  git status
+  628  git add app.py
+  629  git commit
+  630  history 50 > terminal_history.txt
+  631  mkdir docs/images
+  632  mkdir docs
+  633  cd docs
+  634  mkdir images
+  635  git log
+  636  git status
+  637  git status
+  638  git status
+  639  cd ..
+  640  git status
+  641  git add .
+  642  git status
+  643  git commit
+  644  git log > commits.txt
+  645  git push
+  646  git push --set-upstream origin loan-qualifier-app
+  647  history 50 > docs/terminal_history.txt

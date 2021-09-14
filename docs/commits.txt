@@ -1,0 +1,63 @@
+commit 901afddafe310c679c6ab58b3a4d9ab68f836a64
+Author: Jacob Rougeau <oneor11@hotmail.com>
+Date:   Mon Sep 13 21:52:52 2021 -0500
+
+    Add doc images folder and update README
+    
+    A doc/images folder was added to hold documentation-related images
+    referenced in the README.  The README was also updated to document the
+    project.
+
+commit 60c471af16988414211194d398438148a6bc5ba5
+Author: Jacob Rougeau <oneor11@hotmail.com>
+Date:   Mon Sep 13 21:31:46 2021 -0500
+
+    Refactor to use questionary "confirm" and "path"
+    
+    The code was refactored to use the "confirm" question type when prompting
+    the user if they wanted to save and the "path" question type when
+    prompting them to select a path.
+
+commit 0d9add4245e2547e503e8f17db089b68fa4b7f60
+Author: Jacob Rougeau <oneor11@hotmail.com>
+Date:   Mon Sep 13 20:39:53 2021 -0500
+
+    Add explicit .csv file extension
+    
+    If a file name is given that doesn't have a .csv extension, then the
+    program adds a .csv extension. This applies to files that don't have an
+    extension as well as to files that have a different extension. The
+    original non-csv extension is not replaced by design.
+
+commit 6a90d1b6658e3e605f5103a5e17d6749218504b7
+Author: Jacob Rougeau <oneor11@hotmail.com>
+Date:   Mon Sep 13 20:30:02 2021 -0500
+
+    Implement the saving of qualified loans to CSV
+    
+    Features added:
+    
+    - the tool prompts the user to save the results as a CSV file
+    - when prompted to save the results, the user can opt out of
+    saving the file
+    - when saving the loans, the tool prompts for file path information
+    - when the file is saved, it saves the file as a csv file
+    - when there are no qualifying loans, the app notifies and exits
+
+commit 14f72da81ede1529e7936162345a29d95e3286b0
+Author: Jacob Rougeau <oneor11@hotmail.com>
+Date:   Sun Sep 12 21:25:41 2021 -0500
+
+    Scaffold initial project
+    
+    [Module 2 Challenge
+    Files](https://courses.bootcampspot.com/courses/797/files/898991/download)
+    were downloaded and placed into a new branch in a local repository.
+    Files were brought in as-is and will serve as a starting point for the
+    implementation of user stories.
+
+commit 6013db682f4677d48963ea4d18bfff65bd1cd8f6
+Author: Jacob Rougeau <62037861+oneor11@users.noreply.github.com>
+Date:   Sun Sep 12 21:14:21 2021 -0500
+
+    Initial commit

@@ -21,11 +21,29 @@ pip install questionary
 
 ## Usage
 
+### Startup
+
+```python
+
+python app.py
+
+```
+
+### Input Example
+
 ![screenshot of app in action](docs/images/loan-qualifier-app.PNG)
+
+### Output Example
+
+![screenshot of csv output](docs/images/loan-qualifier-app-output.png)
 
 ## Contributors
 
 - Jacob Rougeau
+
+[50 command terminal history](docs/terminal_history.txt)
+
+[terminal git log](docs/commits.txt)
 
 ## License
 
