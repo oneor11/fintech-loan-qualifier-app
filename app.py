@@ -8,7 +8,6 @@ Example:
 import sys
 import fire
 import questionary
-import uuid
 
 from pathlib import Path
 
@@ -107,6 +106,8 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
 
     return bank_data_filtered
 
+def is_file_path_valid(path):
+    return Path(path).is_dir()
 
 def save_qualifying_loans(qualifying_loans):
     """Saves the qualifying loans to a CSV file.
@@ -118,25 +119,14 @@ def save_qualifying_loans(qualifying_loans):
     # YOUR CODE HERE!
 
     if len(qualifying_loans) > 0:
-        is_save_file = ""
-        err_message = ""
-
-        # Prompt for save since there are qualifying loans
-        while is_save_file.upper() != "N" and is_save_file.upper() != "Y":
-            is_save_file = \
-                questionary.text(err_message + "Would you like to save the " 
-                "results to a CSV (comma separated values) file? "
-                "[Y,N]: ").ask()
-            err_message = "Invalid input entered. "
+        is_save_file = questionary.confirm("Would you like to save the " 
+                "results to a CSV (comma separated values) file? ").ask()
         
-        if is_save_file.upper()  == "Y":
+        if is_save_file:
             # Collect folder path information
-            file_path = str(uuid.uuid4())
-            err_message = ""
-            while not Path(file_path).is_dir():
-                file_path = questionary.text(err_message + "Please "
-                "enter a valid folder path: ").ask()
-                err_message = "Invalid directory path. "
+            file_path = questionary.path("Please enter a valid folder path "
+            "or [Enter] for current directory: ", validate=is_file_path_valid,
+            only_directories=True).ask()
 
             # Collect file name information
             file_name = ""
