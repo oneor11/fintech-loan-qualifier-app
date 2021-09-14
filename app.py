@@ -8,9 +8,16 @@ Example:
 import sys
 import fire
 import questionary
+import uuid
+
 from pathlib import Path
 
-from qualifier.utils.fileio import load_csv
+from questionary import question
+
+from qualifier.utils.fileio import (
+    load_csv, 
+    save_csv
+)
 
 from qualifier.utils.calculators import (
     calculate_monthly_debt_ratio,
@@ -109,6 +116,43 @@ def save_qualifying_loans(qualifying_loans):
     """
     # @TODO: Complete the usability dialog for savings the CSV Files.
     # YOUR CODE HERE!
+
+    if len(qualifying_loans) > 0:
+        is_save_file = ""
+        err_message = ""
+
+        # Prompt for save since there are qualifying loans
+        while is_save_file.upper() != "N" and is_save_file.upper() != "Y":
+            is_save_file = \
+                questionary.text(err_message + "Would you like to save the " 
+                "results to a CSV (comma separated values) file? "
+                "[Y,N]: ").ask()
+            err_message = "Invalid input entered. "
+        
+        if is_save_file.upper()  == "Y":
+            # Collect folder path information
+            file_path = str(uuid.uuid4())
+            err_message = ""
+            while not Path(file_path).is_dir():
+                file_path = questionary.text(err_message + "Please "
+                "enter a valid folder path: ").ask()
+                err_message = "Invalid directory path. "
+
+            # Collect file name information
+            file_name = ""
+            err_message = ""
+            while file_name == "":
+                file_name = questionary.text(err_message + "Enter the "
+                    "desired file name: ").ask()
+                err_message = "A file name is required. "
+            if Path(file_name).suffix == "":
+                file_name = file_name + ".csv"
+            
+            #Assemble file path, add header, and save
+            file_path = Path(file_path).joinpath(file_name)
+            header = ["Lender", "Max Loan Amount", "Max LTV",
+                "Max DTI","Min Credit Score","Interest Rate"]
+            save_csv(file_path, qualifying_loans, header)
 
 
 def run():
